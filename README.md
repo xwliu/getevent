@@ -28,3 +28,11 @@ $ gcc -o getevent getevent.c
 ```
 
 5. sendevent可以直接将`sendevent_main`修改为`main`，不依赖其他文件，可以直接编译通过，此处不多做介绍。
+
+6. 编译
+
+```
+prebuilts/gcc/linux-x86/arm/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc -static getevent.c  -o getevent
+prebuilts/gcc/linux-x86/arm/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc -static -march=armv7-a -mfpu=neon -D__LINUX_ARM_ARCH__=7 -D__ARM_EABI__ -D__ARMEL__ getevent.c  -o getevent
+prebuilts/gcc/linux-x86/arm/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-strip getevent
+```
